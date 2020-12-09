@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+	Layout = "Master.cshtml";
+	 var home = Model.Root();
+    var websitename = home.Value("websiteName");
+    var headertitle= home.Value("headerTitle");
+    var headersubtitle = home.Value("headerSubTitle");
+    var phone = home.Value("phone");
+    var email = home.Value("email");
+    var address = home.Value("address");
+    var contactSectionDescription = home.Value("contactSectionDescription");
+}
+
+<!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center" >
+        <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+            <h1>@headertitle</h1>
+            <h2>@headersubtitle</h2>
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+        </div>
+    </section><!-- End Hero -->

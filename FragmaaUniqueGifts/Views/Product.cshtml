@@ -1,0 +1,78 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = "Master.cshtml";
+
+}
+
+
+<!-- ======= Portfolio Details Section ======= -->
+<section id="portfolio-details" class="portfolio-details" style="margin-top:150px;">
+    <div class="container">
+
+        <div class="portfolio-details-container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="owl-carousel portfolio-details-carousel">
+                <img src="@Model.Value("productImage")" class="img-fluid" alt="">
+            </div>
+
+            <div class="portfolio-info">
+                <h3>Product information</h3>
+                <ul>
+                    <li><strong>Category</strong>: Web design</li>
+                    <li><strong>Client</strong>: ASU Company</li>
+                    <li><strong>Project date</strong>: 01 March, 2020</li>
+                    <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                    <div class="d-flex">
+                        <input type="text" id="copylink" class="form-control" /> <button id="copyToClipBoardButton"><i class='bx bx-clipboard'></i></button>
+                    </div>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="portfolio-description">
+            <h2>@Model.Value("productName")</h2>
+            <p>
+                @Model.Value("productDescription")
+            </p>
+        </div>
+
+    </div>
+</section><!-- End Portfolio Details Section -->
+@section Scripts
+    {
+
+    <script>
+
+            $(document).ready(function () {
+
+                var url = window.location.href;
+                var productUrl = $('#copylink').val(url);
+
+                $('#copyToClipBoardButton').click(function () {
+
+
+
+                    /* Select the text field */
+                    var copyText = document.getElementById("copylink");
+
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+
+
+                    document.execCommand("copy");
+
+                    $('#copyToClipBoardButton').notify(
+                        "Copied",
+                        "success",
+                        { position: "right" }
+                    );
+
+                });
+            });
+    </script>
+
+}
+
+
